@@ -8,7 +8,7 @@ Given the following excerpt from the Declaration of Independence, find the most 
 
  - use components(separatedBy:) to break up the string into an array.
  - use CharacterSet.punctuationCharacters in union with any other characters you don't want in your array, like spaces and new lines.
-
+ 
 ```swift
 let declarationOfIndependence =
 
@@ -38,6 +38,18 @@ establishment of an absolute Tyranny over these States. To prove this, let Facts
 candid world.
 """
 ```
+```swift
+let arrDeclaration: [String] = declarationOfIndependence.components(separatedBy: " ")
+var decWordCount = arrDeclaration.count
+print(decWordCount)
+
+for word in arrDeclaration {
+if word.count > 5 {
+print(word)
+}
+}
+```
+
 
 ## Question 2
 
@@ -129,6 +141,40 @@ a. Given the structs above, add a method to `Receipt` that returns the total cos
 b. Write a function that takes in an array of `Receipts` and returns an array of `Receipts` that match a given store name
 
 c. Write a function that takes in an array of `Receipts` and returns an array of those receipts sorted by price
+
+```swift
+struct Receipt {
+let storeName: String
+let items: [ReceiptItem]
+
+func totalCost() -> Double {
+var priceArr = [Double]()
+for item in items {
+priceArr.append(item.price)
+}
+return priceArr.reduce(0, +)
+}
+}
+
+struct ReceiptItem {
+let name: String
+let price: Double
+
+
+func sameNameReceipt: ([Receipt], storeName: String) -> [Receipt] {
+receipt.filter { (receipt) } -> Bool in
+return receipt.storeName == storeName
+}
+returnArray
+}
+
+
+let apple = ReceiptItem(name: "Apple", price: 2.00)
+let cereal = ReceiptItem(name: "Captain Crunch", price: 2.00)
+let soda = ReceiptItem(name: "Coke", price: 2.50)
+let itemArr = [apple, cereal, soda]
+let receipt = Receipt(storeName: "Whole Foods", items: itemArr)
+```
 
 ## Question 6
 
