@@ -251,7 +251,22 @@ balance -= amount
 
 b. Add a property called `deposits` of type `[Double]` that stores all of the deposits made to the bank account
 ```swift
+struct BankAccount {
+var owner: String
+var balance: Double
+var deposits: [Double]
 
+
+mutating func deposit(_ amount: Double) {
+balance += amount
+}
+
+mutating func withdraw(_ amount: Double) {
+balance -= amount
+}
+}
+
+let myDeposits = BankAccount(owner: "jane doe", balance: 50.00, deposits: [0.0, 0.0, 0.0])
 ```
 
 c. Add a property called `withdraws` of type `[Double]` that stores all of the withdraws made to the bank account
@@ -326,3 +341,5 @@ Input: ["Hello", "Alaska", "Dad", "Peace", "Power"]
 
 Output: ["Alaska", "Dad", "Power"]
 ```
+
+
