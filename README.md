@@ -180,6 +180,8 @@ let receipt = Receipt(storeName: "Whole Foods", items: itemArr)
 
 a. The code below doesn't compile.  Why?  Fix it so that it does compile.
 
+Answer: The property .homePlanet is a constant and must be changed into a variable in order for the code to compile.
+
 ```swift
 class Giant {
     var name: String
@@ -201,6 +203,9 @@ fred.homePlanet = "Mars"
 ```
 
 b. Using the Giant class. What will the value of `edgar.name` be after the code below runs? How about `jason.name`? Explain why.
+
+Answer: The value of both instances edgar.name and jason.name will be "Jason" because Classes are reference values and keep their initial property values.  For the values to change using this exact format, we would have to use a struct.
+
 
 ```swift
 let edgar = Giant(name: "Edgar", weight: 520.0, homePlanet: "Earth")
@@ -227,13 +232,44 @@ struct BankAccount {
 
 a. Explain why the code above doesn't compile, then fix it.
 
+Answer: The functions cannot execute unless they are turned into mutating functions.
+
+```swift
+struct BankAccount {
+var owner: String
+var balance: Double
+
+mutating func deposit(_ amount: Double) {
+balance += amount
+}
+
+mutating func withdraw(_ amount: Double) {
+balance -= amount
+}
+}
+```
+
 b. Add a property called `deposits` of type `[Double]` that stores all of the deposits made to the bank account
+```swift
+
+```
 
 c. Add a property called `withdraws` of type `[Double]` that stores all of the withdraws made to the bank account
 
+```swift
+
+```
+
 d. Add a property called `startingBalance`.  Have this property be set to the original balance, and don't allow anyone to change it
 
+```swift
+```
+
 e. Add a method called `totalGrowth` that returns a double representing the change in the balance from the starting balance to the current balance
+
+```swift
+
+```
 
 ## Question 8
 
